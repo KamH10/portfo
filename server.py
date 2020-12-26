@@ -39,7 +39,8 @@ def html_page(page_name):
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 def write_to_text_file(data):
-    db_folder = 'db/'
+    # db_folder = 'db/'
+    db_folder = 'portfo/db/'    # need to add 'portfo/' for pythonanywhere
     with open(db_folder + "database.txt", mode='a') as db1:
         email = data["email"]
         subject = data["subject"]
@@ -49,7 +50,8 @@ def write_to_text_file(data):
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 def write_to_csv_file(data):
-    db_folder = 'db/'
+    # db_folder = 'db/'
+    db_folder = 'portfo/db/'    # need to add 'portfo/' for pythonanywhere
     with open(db_folder + "database.csv", mode='a', newline='') as db2:
         email = data["email"]
         subject = data["subject"]
@@ -79,4 +81,12 @@ def submit_form():
     
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-app.run(port=5000)
+# app.run(port=5000)
+#
+# **NOTE** Use the line above only for local delvelopment, using localhost.
+# If you want to deploy your code to sites like PythonAnaywhere use the following.
+# I could fix this using the following documentation under the 
+# 'Do not use app.run()' section: https://help.pythonanywhere.com/pages/Flask/
+#
+if __name__ == '__main__':
+    app.run()
